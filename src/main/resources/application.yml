@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: customers
+  profiles:
+    active: production
+  datasource:
+    url: ${customers.spring.datasource.url}
+    username: ${customers.spring.datasource.username}
+    password: password #${customers.spring.datasource.password}
+    jpa:
+      database: ${customers.spring.jpa.database}
+      show-sql: ${customers.spring.jpa.show-sql}
+      hibernate:
+        ddl-auto: ${customers.spring.jpa.hibernate.ddl-auto}
+server:
+  port: ${customers.server.port}
+
+# ACTUATOR INFO
+info:
+  app:
+    name: "Customers"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${customers.server.port}
+
+#actuator
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+application:
+  allow-get-customers: ${customers.allow-get-customers}
