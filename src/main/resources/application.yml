@@ -6,7 +6,7 @@ spring:
   datasource:
     url: ${customers.spring.datasource.url}
     username: ${customers.spring.datasource.username}
-    password: password #${customers.spring.datasource.password}
+    password: ${customers.spring.datasource.password}
     jpa:
       database: ${customers.spring.jpa.database}
       show-sql: ${customers.spring.jpa.show-sql}
@@ -36,3 +36,6 @@ management:
 
 application:
   allow-get-customers: ${customers.allow-get-customers}
+
+eureka:
+  client: ${eureka-client}
