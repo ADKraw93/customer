@@ -2,6 +2,7 @@ package com.app.customer.controller;
 
 import com.app.customer.controller.response.GetCustomerProductsResponse;
 import com.app.customer.domain.AccountDto;
+import com.app.customer.domain.CardDto;
 import com.app.customer.domain.CustomerDto;
 import com.app.customer.services.CustomersListGenerator;
 import com.app.customer.services.CustomersMapper;
@@ -47,11 +48,13 @@ public class CustomerController {
         CustomerDto customerDto = mapper.mapToCustomerDto(generator.findCustomer(customerId));
 
         List<AccountDto> customerAccounts = productService.findCustomerAccounts(customerId);
+        List<CardDto> customerCards = productService.findCustomerCards(customerId);
 
         return GetCustomerProductsResponse.builder()
                 .customerId(customerDto.getId())
                 .fullName(customerDto.getFirstName() + " " + customerDto.getLastName())
                 .accounts(customerAccounts)
+                .cards(customerCards)
                 .build();
     }
 }
