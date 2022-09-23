@@ -37,8 +37,8 @@ management:
 application:
   allow-get-customers: ${customers.allow-get-customers}
 
-eureka:
-  client: ${eureka-client}
+#eureka:
+#  client: ${eureka-client}
 
 feign:
   hystrix:
