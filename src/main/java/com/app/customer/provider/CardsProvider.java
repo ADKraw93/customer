@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -14,6 +15,8 @@ public class CardsProvider {
 
     //@HystrixCommand(fallbackMethod = "fallbackGetCards")
     public List<CardDto> getCustomerCards(Long customerId) {
+        System.out.println(cardsConnector.getCards(customerId)
+                .getCardsDto());
         return cardsConnector.getCards(customerId)
                 .getCardsDto();
     }

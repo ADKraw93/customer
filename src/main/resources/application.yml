@@ -37,9 +37,25 @@ management:
 application:
   allow-get-customers: ${customers.allow-get-customers}
 
-#eureka:
-#  client: ${eureka-client}
+eureka: #comment these two in case of ribbon
+  client: ${eureka-client}
+  instance:
+      prefer-ip-address: true
 
 feign:
   hystrix:
     enabled: true
+
+#accounts:
+#   ribbon:
+#      eureka:
+#         enabled: false
+#
+#      listOfServers: localhost:9999,localhost:9998
+#
+#cards:
+#   ribbon:
+#      eureka:
+#         enabled: false
+#
+#      listOfServers: localhost:7050
